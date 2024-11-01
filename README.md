@@ -1,4 +1,4 @@
-# Nvim-config
+#Nvim-config
 .\
 ├── init.lua\
 ├── lazy-lock.json\
@@ -15,6 +15,7 @@
 │       ├── lspconfig.lua\
 │       ├── luvit-meta.lua\
 │       ├── mini.lua\
+│       ├── neo-tree.lua\
 │       ├── nvim-cmp.lua\
 │       ├── telescope.lua\
 │       ├── todo-comments.lua\
@@ -24,4 +25,4 @@
 │       └── which-key.lua\
 └── README.md\
 \
-4 directories, 20 files\
+4 directories, 21 files
