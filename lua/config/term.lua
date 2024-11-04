@@ -28,8 +28,8 @@ end
 
 vim.keymap.set("n", "<C-Bslash>", function()
 	TerminalToggle()
-end)
+end, { desc = "Terminal reveal" })
 
 vim.keymap.set("t", "<C-Bslash>", function()
 	TerminalToggle()
-end)
+end, { desc = "Terminal reveal" })
