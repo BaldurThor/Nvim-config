@@ -33,3 +33,5 @@ end, { desc = "Terminal reveal" })
 vim.keymap.set("t", "<C-Bslash>", function()
 	TerminalToggle()
 end, { desc = "Terminal reveal" })
+
+vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w><C-k>", { desc = "Swap from terminal to window above" })
