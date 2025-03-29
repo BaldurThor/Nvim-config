@@ -68,3 +68,5 @@ vim.opt.scrolloff = 10
 -- Make tab be 2 spaces instead of /t
 
 vim.o.tabstop = 4
+
+vim.api.nvim_create_user_command("Dashboard", "lua Snacks.dashboard()", {})
