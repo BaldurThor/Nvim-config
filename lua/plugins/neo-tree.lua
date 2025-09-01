@@ -8,6 +8,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 		"MunifTanjim/nui.nvim",
+		"kiyoon/nvim-tree-remote.nvim",
 	},
 	cmd = "Neotree",
 	keys = {
@@ -56,4 +57,21 @@ return {
 			},
 		},
 	},
+	config = function()
+      require("neo-tree").setup({
+        event_handlers = {
+          {
+            event = "file_open_requested",
+            handler = function(args)
+              local nt_remote = require("nvim_tree_remote")
+              -- customise the socket_path and tmux options as you like.
+              nt_remote.remote_nvim_open('/tmp/nvim_tree_remote_socket', args.open_cmd, args.path, nt_remote.tmux_defaults())
+
+              -- stop default open; we already did it remotely
+              return { handled = true }
+            end,
+          },
+        },
+      })
+    end,
 }
