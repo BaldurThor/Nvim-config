@@ -6,7 +6,7 @@ git clone https://github.com/BaldurThor/Nvim-config/ .config/nvim
 
 ## Requires
 
-[nvim]
+[nvim](https://github.com/neovim/neovim/blob/master/INSTALL.md#linux)
 
 ```
 
