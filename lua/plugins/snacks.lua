@@ -51,6 +51,19 @@ return {
 						desc = "Check Health",
 						action = ":checkhealth",
 					},
+					{
+						icon = " ",
+						key = "R",
+						desc = "Remote SSHFS Connect",
+						action = ":RemoteSSHFSConnect",
+					},
+					{
+						icon = "󰖷 ",
+						key = "E",
+						desc = "Remote SSHFS Edit",
+						action = ":RemoteSSHFSEdit",
+					},
+
 					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 				},
 				header = [[
