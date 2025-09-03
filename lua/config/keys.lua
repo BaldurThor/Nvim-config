@@ -13,11 +13,3 @@ local api = require("remote-sshfs.api")
 vim.keymap.set("n", "<leader>rc", api.connect, { desc = "Connect" })
 vim.keymap.set("n", "<leader>rd", api.disconnect, { desc = "Disconnect" })
 vim.keymap.set("n", "<leader>re", api.edit, { desc = "Edit" })
-
--- completion
-
-local imap_expr = function(lhs, rhs)
-	vim.keymap.set("i", lhs, rhs, { expr = true })
-end
-imap_expr("<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]])
-imap_expr("<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]])
