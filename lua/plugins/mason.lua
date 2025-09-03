@@ -40,39 +40,43 @@ return {
 		local formatters_by_ft = tools_config.formatters
 		local linters_by_ft = tools_config.linters or {}
 
-		-- Logic to automatically build the list of tools to install
+		-- Build the list of tools to install
 		local ensure_installed = vim.tbl_keys(servers)
-		local tool_set = {}
-		for _, tool in ipairs(ensure_installed) do
-			tool_set[tool] = true
-		end
-
-		local function add_tools_to_install(tools_map)
-			for _, tools in pairs(tools_map) do
-				for _, tool in ipairs(tools) do
-					if not tool_set[tool] then
-						table.insert(ensure_installed, tool)
-						tool_set[tool] = true
+		do
+			local tool_set = {}
+			for _, tool in ipairs(ensure_installed) do
+				tool_set[tool] = true
+			end
+			local function add_tools(tools_map)
+				for _, tools in pairs(tools_map) do
+					for _, tool in ipairs(tools) do
+						if not tool_set[tool] then
+							table.insert(ensure_installed, tool)
+							tool_set[tool] = true
+						end
 					end
 				end
 			end
+			add_tools(formatters_by_ft)
+			add_tools(linters_by_ft)
 		end
 
-		add_tools_to_install(formatters_by_ft)
-		add_tools_to_install(linters_by_ft)
-
-		-- Mason and lspconfig setup
+		-- Setup mason-lspconfig to automatically install the tools
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-		require("mason-lspconfig").setup({
-			handlers = {
-				function(server_name)
-					local server_opts = servers[server_name] or {}
-					server_opts.capabilities =
-						vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
-					require("lspconfig")[server_name].setup(server_opts)
-				end,
-			},
-		})
+
+		-- Get the necessary LSP capabilities from nvim-cmp
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+		-- Get the lspconfig plugin
+		local lspconfig = require("lspconfig")
+
+		-- Loop through the servers defined in tools.lua and set them up
+		for server_name, server_opts in pairs(servers) do
+			-- Combine the default capabilities with any server-specific ones
+			server_opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
+			-- Call the setup function for each server
+			lspconfig[server_name].setup(server_opts)
+		end
 
 		-- Configure conform.nvim using our single source of truth
 		require("conform").setup({
@@ -84,7 +88,7 @@ return {
 				end
 				return { timeout_ms = 500, lsp_format = "fallback" }
 			end,
-			formatters_by_ft = formatters_by_ft, -- Use our central list
+			formatters_by_ft = formatters_by_ft,
 		})
 
 		-- Setup our custom LSP UI
