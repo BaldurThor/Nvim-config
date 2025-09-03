@@ -50,13 +50,6 @@ return {
 					},
 				},
 
-				show_unnamed_buf_in_tabline = true,
-				always_divide_middle = true,
-
-				special_filetypes = {
-					dashboard = "Dashboard",
-				},
-
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 			},
