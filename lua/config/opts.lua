@@ -16,3 +16,6 @@ vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.tabstop = 4
+vim.opt.showcmd = false
+vim.opt.ruler = false
+vim.opt.showmode = false
