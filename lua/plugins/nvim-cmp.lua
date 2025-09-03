@@ -1,7 +1,16 @@
+-- lua/plugins/nvim-cmp.lua
 return { -- Autocompletion
 	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
 	dependencies = {
+		-- Add the full nvim-autopairs config here
+		{
+			"windwp/nvim-autopairs",
+			event = "InsertEnter",
+			config = function()
+				require("nvim-autopairs").setup({})
+			end,
+		},
 		-- Snippet Engine & its associated nvim-cmp source
 		{
 			"L3MON4D3/LuaSnip",
