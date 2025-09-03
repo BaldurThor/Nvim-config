@@ -1,13 +1,10 @@
 return {
-	"xiyaowong/transparent.nvim",
-	{
-		"askfiy/visual_studio_code",
-		priority = 100,
-		config = function()
-			vim.cmd([[colorscheme visual_studio_code]])
-
-			-- Apply our custom highlights right after the colorscheme loads
-			require("config.highlights")
-		end,
-	},
+	"askfiy/visual_studio_code",
+	priority = 100,
+	dependencies = { "xiyaowong/transparent.nvim" },
+	config = function()
+		vim.cmd([[colorscheme visual_studio_code]])
+		vim.cmd([[TransparentEnable]])
+		require("config.highlights")
+	end,
 }
