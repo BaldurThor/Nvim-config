@@ -81,4 +81,26 @@ return {
 			},
 		},
 	},
+	config = function(_, opts)
+		require("snacks").setup(opts)
+
+		local augroup = vim.api.nvim_create_augroup("DashboardStatusline", { clear = true })
+		local default_laststatus = vim.o.laststatus
+
+		vim.api.nvim_create_autocmd("User", {
+			group = augroup,
+			pattern = "SnacksDashboardOpened",
+			callback = function()
+				vim.o.laststatus = 3
+				local bufnr = vim.api.nvim_get_current_buf()
+				vim.api.nvim_create_autocmd("BufLeave", {
+					buffer = bufnr,
+					once = true,
+					callback = function()
+						vim.o.laststatus = default_laststatus
+					end,
+				})
+			end,
+		})
+	end,
 }

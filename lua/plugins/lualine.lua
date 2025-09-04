@@ -2,6 +2,7 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	lazy = false, -- Make sure lualine is loaded at startup
 	config = function()
 		require("lualine").setup({
 			options = {
@@ -49,6 +50,9 @@ return {
 						c = { bg = "#3C3C3C", fg = "#B3B3B3" },
 					},
 				},
+
+				show_unnamed_buf_in_tabline = true,
+				always_divide_middle = true,
 
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
