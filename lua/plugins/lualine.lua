@@ -3,18 +3,40 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	lazy = false, -- Make sure lualine is loaded at startup
 	config = function()
+		local ignore_fts = { "snacks_dashboard", "toggleterm", "NvimTree" }
 		local function Get_filename()
-			return require("lualine.components.filename").get()
+			if vim.bo.filetype == ignore_fts[1] then
+				return [[Dashboard]]
+			elseif vim.bo.filetype == ignore_fts[2] then
+				return [[Terminal]]
+			elseif vim.bo.filetype == ignore_fts[3] then
+				return [[Tree]]
+			else
+				return require("lualine.components.filename"):new():update_status()
+			end
 		end
 		local function Get_file_type()
-			return require("lualine.components.filetype").get()
+			if vim.tbl_contains(ignore_fts, vim.bo.filetype) then
+				return [[]]
+			else
+				return require("lualine.components.filetype"):new():update_status()
+			end
 		end
 		local function Get_progress()
-			return require("lualine.components.progress").get()
+			if vim.tbl_contains(ignore_fts, vim.bo.filetype) then
+				return [[]]
+			else
+				return require("lualine.components.progress")()
+			end
 		end
 		local function Get_location()
-			return require("lualine.components.location").get()
+			if vim.tbl_contains(ignore_fts, vim.bo.filetype) then
+				return [[]]
+			else
+				return require("lualine.components.location")()
+			end
 		end
+
 		require("lualine").setup({
 			options = {
 				theme = {
