@@ -1,9 +1,20 @@
--- lua/plugins/lualine.lua
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	lazy = false, -- Make sure lualine is loaded at startup
 	config = function()
+		local function Get_filename()
+			return require("lualine.components.filename").get()
+		end
+		local function Get_file_type()
+			return require("lualine.components.filetype").get()
+		end
+		local function Get_progress()
+			return require("lualine.components.progress").get()
+		end
+		local function Get_location()
+			return require("lualine.components.location").get()
+		end
 		require("lualine").setup({
 			options = {
 				theme = {
@@ -59,15 +70,29 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = { "filename" },
-				lualine_x = { "encoding", "fileformat", "filetype" },
-				lualine_y = { "progress" },
-				lualine_z = { "location" },
+				lualine_b = {
+					{ "branch" },
+					{ "diff" },
+					{ "diagnostics" },
+				},
+				lualine_c = {
+					{ Get_filename },
+				},
+				lualine_x = {
+					{ "encoding" },
+					{ "fileformat" },
+					{ Get_file_type },
+				},
+				lualine_y = {
+					{ Get_progress },
+				},
+				lualine_z = {
+					{ Get_location },
+				},
 			},
 			inactive_sections = {
-				lualine_c = { "filename" },
-				lualine_x = { "location" },
+				lualine_c = { Get_filename },
+				lualine_x = { Get_location },
 			},
 		})
 	end,
