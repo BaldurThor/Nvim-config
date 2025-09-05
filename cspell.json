@@ -1,0 +1,21 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "checkComments": true,
+  "words": [
+    "nvim",
+    "lua",
+    "luasnip",
+    "lualine",
+    "stylua",
+    "netrw",
+    "plenary",
+    "telescope",
+    "treesitter",
+    "whichkey"
+  ],
+  "ignorePaths": [
+    "*.lock",
+    "lazy-lock.json"
+  ]
+}

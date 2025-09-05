@@ -3,7 +3,9 @@
 return {
 	-- Add LSP servers here
 	servers = {
-		cspell = {},
+		cspell = {
+			filetypes = { "lua", "python", "markdown", "text", "yaml", "json" },
+		},
 		pyright = {},
 		lua_ls = {
 			-- These are the settings passed to the lua-ls server
