@@ -3,7 +3,8 @@
 return {
 	-- Add LSP servers here
 	servers = {
-		pyright = {}, -- No custom settings needed
+		cspell = {},
+		pyright = {},
 		lua_ls = {
 			-- These are the settings passed to the lua-ls server
 			settings = {
