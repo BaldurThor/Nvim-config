@@ -12,7 +12,14 @@
     "plenary",
     "telescope",
     "treesitter",
-    "whichkey"
+    "whichkey",
+    "pyright",
+    "stdpath",
+    "vimruntime",
+    "isort",
+    "vimdoc",
+    "nvimtools",
+    "davidmh"
   ],
   "ignorePaths": [
     "*.lock",

@@ -38,10 +38,13 @@ return {
 	formatters = {
 		lua = { "stylua" },
 		python = { "isort", "black" },
+		_ = { "clang-format" },
 	},
 
 	-- Add linters here
-	linters = {},
+	linters = {
+		_ = { "cspell" },
+	},
 
 	treesitter = {
 		"lua",
