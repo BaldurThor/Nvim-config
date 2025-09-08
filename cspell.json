@@ -19,7 +19,8 @@
     "isort",
     "vimdoc",
     "nvimtools",
-    "davidmh"
+    "davidmh",
+    "fssh"
   ],
   "ignorePaths": [
     "*.lock",
