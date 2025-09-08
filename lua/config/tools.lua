@@ -3,9 +3,6 @@
 return {
 	-- Add LSP servers here
 	servers = {
-		cspell = {
-			filetypes = { "lua", "python", "markdown", "text", "yaml", "json" },
-		},
 		pyright = {},
 		lua_ls = {
 			-- These are the settings passed to the lua-ls server
@@ -43,10 +40,8 @@ return {
 		python = { "isort", "black" },
 	},
 
-	-- Add linters here (optional, for future use)
-	linters = {
-		-- Example: bash = { "shellcheck" },
-	},
+	-- Add linters here
+	linters = {},
 
 	treesitter = {
 		"lua",
