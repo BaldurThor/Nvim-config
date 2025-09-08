@@ -1,6 +1,6 @@
 local lualine = require("lualine")
 
-local ignore_fts = { "snacks_dashboard", "toggleterm", "NvimTree" }
+local ignore_fts = { "snacks_dashboard", "toggleterm", "NvimTree", "trouble" }
 
 local exclude = function()
 	return vim.fn.empty(vim.fn.expand("%:t")) ~= 1 and not vim.tbl_contains(ignore_fts, vim.bo.filetype)
@@ -13,6 +13,8 @@ local get_filename = function()
 		return [[Terminal]]
 	elseif vim.bo.filetype == ignore_fts[3] then
 		return [[NvimTree]]
+	elseif vim.bo.filetype == ignore_fts[4] then
+		return [[Trouble]]
 	else
 		return require("lualine.components.filename"):new():update_status()
 	end

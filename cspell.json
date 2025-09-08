@@ -1,6 +1,6 @@
 {
-  "version": "0.2",
   "language": "en",
+  "version": "0.2",
   "checkComments": true,
   "words": [
     "nvim",
@@ -20,7 +20,12 @@
     "vimdoc",
     "nvimtools",
     "davidmh",
-    "fssh"
+    "fssh",
+    "folke",
+    "keymap",
+    "sshfs",
+    "autocmd",
+    "devicons"
   ],
   "ignorePaths": [
     "*.lock",

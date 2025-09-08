@@ -8,8 +8,10 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "\\", "<cmd>NvimTreeToggle<CR>")
 
 -- Remote sshfs
-
 local api = require("remote-sshfs.api")
 vim.keymap.set("n", "<leader>rc", api.connect, { desc = "Connect" })
 vim.keymap.set("n", "<leader>rd", api.disconnect, { desc = "Disconnect" })
 vim.keymap.set("n", "<leader>re", api.edit, { desc = "Edit" })
+
+--code actions
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
