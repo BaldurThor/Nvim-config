@@ -17,3 +17,5 @@ vim.keymap.set("n", "<leader>re", api.edit, { desc = "Edit" })
 
 --code actions
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+
+vim.keymap.set("n", "<leader>df", ":FormatBufferToggle<CR>")
