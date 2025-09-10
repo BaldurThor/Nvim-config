@@ -20,7 +20,9 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action
 
 vim.keymap.set("n", "<leader>cf", "<cmd>FormatBufferToggle<CR>", { desc = "Toggle Auto Format in Buffer" })
 
-vim.keymap.set("n", "<leader>cp", vim.lsp.buf.hover, { desc = "LSP Hover (peak)" })
+vim.keymap.set("n", "K", function()
+	vim.lsp.buf.hover({ border = "rounded" })
+end, { desc = "LSP Buffer Hover" })
 
 -- Buffer
 vim.keymap.set("n", "<leader>bn", "<cmd>bn<CR>", { desc = "Next Buffer" })

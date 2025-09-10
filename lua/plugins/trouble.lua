@@ -55,5 +55,10 @@ return {
 			"<cmd>Trouble qflist toggle<cr>",
 			desc = "Quickfix List",
 		},
+		{
+			"<leader>cd",
+			"<cmd>Trouble lsp_definitions<cr>",
+			desc = "Jump to definition",
+		},
 	},
 }
