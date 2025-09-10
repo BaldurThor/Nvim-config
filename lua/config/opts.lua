@@ -19,3 +19,5 @@ vim.opt.tabstop = 4
 vim.opt.showcmd = false
 vim.opt.ruler = false
 vim.opt.showmode = false
+
+vim.opt.updatetime = 300

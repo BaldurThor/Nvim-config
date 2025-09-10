@@ -19,3 +19,5 @@ vim.keymap.set("n", "<leader>re", api.edit, { desc = "Edit" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
 vim.keymap.set("n", "<leader>df", ":FormatBufferToggle<CR>")
+
+vim.keymap.set("n", "<leader>cp", vim.lsp.buf.hover, { desc = "LSP Hover (peak)" })

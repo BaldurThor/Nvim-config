@@ -41,12 +41,12 @@ return {
 			desc = "Document Symbols",
 		},
 		{
-			"<leader>cL",
+			"<leader>cl",
 			"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
 			desc = "LSP Definitions",
 		},
 		{
-			"<leader>cl",
+			"<leader>cL",
 			"<cmd>Trouble loclist toggle<cr>",
 			desc = "Location List",
 		},
