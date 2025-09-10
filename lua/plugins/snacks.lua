@@ -53,15 +53,15 @@ return {
 					},
 					{
 						icon = " ",
-						key = "R",
-						desc = "Remote SSHFS Connect",
-						action = ":RemoteSSHFSConnect",
+						key = "S",
+						desc = "SSH Connect",
+						action = ":SSHConnect",
 					},
 					{
 						icon = "󰖷 ",
 						key = "E",
-						desc = "Remote SSHFS Edit",
-						action = ":RemoteSSHFSEdit",
+						desc = "SSH Edit",
+						action = ":SSHEdit",
 					},
 
 					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
