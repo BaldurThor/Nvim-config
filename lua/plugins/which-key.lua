@@ -7,6 +7,7 @@ return {
 			{ "<leader>d", group = "[D]ocument" },
 			{ "<leader>s", group = "[S]earch" },
 			{ "<leader>m", group = "[M]ount" },
+			{ "<leader>b", group = "[B]uffer" },
 			{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
 		},
 	},

@@ -18,6 +18,15 @@ vim.keymap.set("n", "<leader>re", api.edit, { desc = "Edit" })
 --code actions
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
-vim.keymap.set("n", "<leader>df", ":FormatBufferToggle<CR>")
+vim.keymap.set("n", "<leader>cf", "<cmd>FormatBufferToggle<CR>", { desc = "Toggle Auto Format in Buffer" })
 
 vim.keymap.set("n", "<leader>cp", vim.lsp.buf.hover, { desc = "LSP Hover (peak)" })
+
+-- Buffer
+vim.keymap.set("n", "<leader>bn", "<cmd>bn<CR>", { desc = "Next Buffer" })
+vim.keymap.set("n", "<leader>bl", "<cmd>bn<CR>", { desc = "Next Buffer" })
+vim.keymap.set("n", "<leader>bp", "<cmd>bp<CR>", { desc = "Previous Buffer" })
+vim.keymap.set("n", "<leader>bh", "<cmd>bp<CR>", { desc = "Previous Buffer" })
+vim.keymap.set("n", "<leader>bb", "<cmd>buffers<CR>", { desc = "List Buffers" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "Delete Buffer" })
+vim.keymap.set("n", "<leader>bq", "<cmd>bd<CR>", { desc = "Delete Buffer" })

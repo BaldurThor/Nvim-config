@@ -15,6 +15,8 @@ local get_filename = function()
 		return [[NvimTree]]
 	elseif vim.bo.filetype == ignore_fts[4] then
 		return [[Trouble]]
+	elseif vim.bo.filetype == "checkhealth" then
+		return [[CheckHealth]]
 	else
 		return require("lualine.components.filename"):new():update_status()
 	end
@@ -43,6 +45,25 @@ local config = {
 		lualine_a = {},
 		lualine_b = {},
 		lualine_c = { get_filename },
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {},
+	},
+	tabline = {
+		lualine_b = {},
+		lualine_a = {
+			{
+				"buffers",
+				use_mode_colors = true,
+				symbols = {
+					modified = " ●",
+					alternate_file = "",
+					directory = "",
+				},
+				filetype_names = { NvimTree = "NvimTree", toggleterm = "Terminal", trouble = "Trouble" },
+			},
+		},
+		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
