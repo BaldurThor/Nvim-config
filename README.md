@@ -11,6 +11,6 @@ touch ~/.ssh/config
 [nerdfont](https://www.nerdfonts.com/)
 
 ```
-ripgrep lua5.1 luarocks curl python3 python3-pip python3-venv fd-find npm
+ripgrep lua5.1 luarocks curl python3 python3-pip python3-venv fd-find npm sshfs
 ```
 
