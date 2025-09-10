@@ -38,7 +38,13 @@ return {
 	formatters = {
 		lua = { "stylua" },
 		python = { "isort", "black" },
-		_ = { "clang-format" },
+		c = { "clang-format" },
+		cpp = { "clang-format" },
+		objc = { "clang-format" },
+		javascript = { "clang-format" },
+		typescript = { "clang-format" },
+		json = { "clang-format" },
+		cs = { "clang-format" },
 	},
 
 	-- Add linters here
