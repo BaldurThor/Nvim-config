@@ -4,6 +4,7 @@ return {
 	-- Add LSP servers here
 	servers = {
 		pyright = {},
+		taplo = {},
 		lua_ls = {
 			-- These are the settings passed to the lua-ls server
 			settings = {
@@ -45,6 +46,7 @@ return {
 		typescript = { "clang-format" },
 		json = { "clang-format" },
 		cs = { "clang-format" },
+		toml = { "taplo" },
 	},
 
 	-- Add linters here

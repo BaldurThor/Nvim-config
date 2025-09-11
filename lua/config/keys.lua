@@ -32,3 +32,6 @@ vim.keymap.set("n", "<leader>bh", "<cmd>bp<CR>", { desc = "Previous Buffer" })
 vim.keymap.set("n", "<leader>bb", "<cmd>buffers<CR>", { desc = "List Buffers" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "Delete Buffer" })
 vim.keymap.set("n", "<leader>bq", "<cmd>bd<CR>", { desc = "Delete Buffer" })
+
+-- Document
+vim.keymap.set("n", "<leader>df", "<cmd>SetFileType<CR>", { desc = "Set [D]ocument [F]iletype" })

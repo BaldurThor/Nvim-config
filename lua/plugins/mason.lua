@@ -36,9 +36,39 @@ return {
 				{
 					"<leader>f",
 					function()
-						require("conform").format({ async = true, lsp_format = "fallback" })
+						local conform = require("conform")
+						-- Use the correct function to check for configured formatters
+						if #conform.list_formatters_to_run(0) > 0 then
+							conform.format({ async = true, lsp_format = "fallback" })
+							return
+						end
+
+						-- If no formatters are configured, prompt the user to select one
+						vim.notify("No formatter configured. Please select one to use for this buffer.", {
+							level = vim.log.levels.INFO,
+							title = "Conform",
+						})
+
+						local all_formatters = conform.list_all_formatters()
+						local formatter_names = {}
+						for _, formatter in ipairs(all_formatters) do
+							table.insert(formatter_names, formatter.name)
+						end
+						table.sort(formatter_names)
+
+						vim.ui.select(formatter_names, {
+							prompt = "Select Formatter:",
+						}, function(choice)
+							if not choice then
+								return
+							end
+							conform.format({
+								formatters = { choice },
+								async = true,
+							})
+						end)
 					end,
-					mode = "",
+					mode = { "n", "v" },
 					desc = "[F]ormat buffer",
 				},
 			},
