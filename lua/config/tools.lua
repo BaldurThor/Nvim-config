@@ -5,6 +5,7 @@ return {
 	servers = {
 		pyright = {},
 		taplo = {},
+		rust_analyzer = {},
 		lua_ls = {
 			-- These are the settings passed to the lua-ls server
 			settings = {
@@ -47,6 +48,7 @@ return {
 		json = { "clang-format" },
 		cs = { "clang-format" },
 		toml = { "taplo" },
+		rust = { "rustfmt" },
 	},
 
 	-- Add linters here
@@ -58,5 +60,6 @@ return {
 		"lua",
 		"vimdoc",
 		"python",
+		"rust",
 	},
 }
