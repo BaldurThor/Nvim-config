@@ -116,6 +116,7 @@ return {
 			server_opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
 			-- Call the setup function for each server
 			vim.lsp.config(server_name, server_opts)
+			vim.lsp.enable(server_name)
 		end
 
 		-- Configure conform.nvim using our single source of truth
