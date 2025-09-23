@@ -108,14 +108,14 @@ return {
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		-- Get the lspconfig plugin
-		local lspconfig = require("lspconfig")
+		-- local lspconfig = require("lspconfig")
 
 		-- Loop through the servers defined in tools.lua and set them up
 		for server_name, server_opts in pairs(servers) do
 			-- Combine the default capabilities with any server-specific ones
 			server_opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
 			-- Call the setup function for each server
-			lspconfig[server_name].setup(server_opts)
+			vim.lsp.config(server_name, server_opts)
 		end
 
 		-- Configure conform.nvim using our single source of truth
